@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import PageTitle from '@/components/PageTitle.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <PageTitle title="Popular Movies" />
 </template>
