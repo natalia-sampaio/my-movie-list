@@ -25,4 +25,4 @@ coverage
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw?"apiKey.js" 
