@@ -1,6 +1,41 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import MovieCard from './components/MovieCard.vue';
+import MovieCard from './components/MovieCard.vue'
+</script>
+
+<script>
+  export default {
+    data() {
+      return {
+        movies: [
+          {
+            image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
+            title: 'Batman',
+            rating: 9.2,
+            year: 2022,
+            description: "Descrição do filme…",
+            isFavorited: true,
+          },
+          {
+            image: 'https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg',
+            title: 'Avengers',
+            rating: 9.2,
+            year: 2019,
+            description: "Descrição do filme…",
+            isFavorited: false
+          },
+          {
+            image: 'https://upload.wikimedia.org/wikipedia/en/1/17/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg',
+            title: 'Doctor Strange',
+            rating: 9.2,
+            year: 2022,
+            description: "Descrição do filme…",
+            isFavorited: false
+          },
+        ]
+      }
+    }
+  }
 </script>
 
 <template>
@@ -16,8 +51,8 @@ import MovieCard from './components/MovieCard.vue';
       <label for="filter" class="text-beige font-medium pl-2 peer-checked:text-blue-accent peer-checked:font-semibold hover:cursor-pointer">Show only my favorite movies</label>
     </div>
   </header>
-  <main class="flex flex-wrap justify-center items-center w-screen">
-    <MovieCard />
+  <main class="flex flex-wrap justify-center items-center">
+    <MovieCard v-for="movie in movies" :movie="movie" />
   </main>
   
   <!-- <header>
