@@ -1,45 +1,32 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import MovieCard from './components/MovieCard.vue'
+import apiKey from '../apiKey.js'
 </script>
 
 <script>
   export default {
     data() {
       return {
-        movies: [
-          {
-            image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-            title: 'Batman',
-            rating: 9.2,
-            year: 2022,
-            description: "Descrição do filme…",
-            isFavorited: true,
-          },
-          {
-            image: 'https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg',
-            title: 'Avengers',
-            rating: 9.2,
-            year: 2019,
-            description: "Descrição do filme…",
-            isFavorited: false
-          },
-          {
-            image: 'https://upload.wikimedia.org/wikipedia/en/1/17/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg',
-            title: 'Doctor Strange',
-            rating: 9.2,
-            year: 2022,
-            description: "Descrição do filme…",
-            isFavorited: false
-          },
-        ]
+        movies: []
       }
+    },
+    methods: {
+      async getPopularMovies() {
+        const request = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=1`;
+        const fetchResponse = await fetch(request);
+        const response = await fetchResponse.json();
+        return this.movies = response.results;
+      }
+    },
+    beforeMount() {
+      this.getPopularMovies()
     }
   }
 </script>
 
 <template>
-  <header class="m-16 text-center">
+  <header class="m-16 text-center w-screen">
     <RouterLink to="/" />
     <RouterView />
     <div class="relative w-6/12 mx-auto">
