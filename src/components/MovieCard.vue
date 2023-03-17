@@ -20,8 +20,15 @@ export default {
         },
         async removeMovieFromFavorites() {
             this.favoriteMovies.splice(this.favoriteMovies.findIndex(element => element.id === this.movie.id), 1)
+        },
+        bringFavoritedMovies() {
+            if(this.favoriteMovies.find(element => element.id === this.movie.id)) {
+                this.checked = true
+            }
         }
-
+    },
+    beforeMount() {
+        this.bringFavoritedMovies()
     }
 }
 </script>
