@@ -1,7 +1,27 @@
 <script>
+import { useLocalStorage } from '@vueuse/core'
 export default {
     props: {
         movie: Object
+    },
+    data() {
+        return {
+            favoriteMovies: useLocalStorage('movies', []),
+            checked: false
+        }
+    },
+    methods: {
+        async saveMovieAsFavorite() {
+            if(!this.checked) {
+                this.removeMovieFromFavorites()
+                return
+            }
+            this.favoriteMovies.push(this.movie)
+        },
+        async removeMovieFromFavorites() {
+            this.favoriteMovies.splice(this.favoriteMovies.findIndex(element => element.id === this.movie.id), 1)
+        }
+
     }
 }
 </script>
@@ -16,8 +36,8 @@ export default {
             <div class="flex items-center">
                 <img src="@/assets/images/star.svg" alt="Movie rating icon">
                 <span class="pl-1">{{ movie.vote_average }}</span>
-                <input type="checkbox" id="like" class="hidden">
                 <label for="like" class="flex pl-4">
+                    <input type="checkbox" id="like" class="" v-model="checked" @change="saveMovieAsFavorite">
                     <img src="@/assets/images/heart.svg" alt="" class="">
                     <span class="pl-1">Favoritar</span>
                 </label>
