@@ -9,7 +9,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    /* {
+    {
       path: '/favorites',
       name: 'favorites',
       // route level code-splitting
@@ -17,7 +17,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/FavoritesView.vue')
     },
-    {
+    /* {
       path: '/search',
       name: 'search',
       component: () => import('../views/SearchResultView.vue')
