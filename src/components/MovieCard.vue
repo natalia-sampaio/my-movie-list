@@ -1,3 +1,9 @@
+<script setup>
+import HeartIcon from './icons/IconHeart.vue'
+import StarIcon from './icons/IconStar.vue'
+import HeartLabel from './HeartLabel.vue';
+</script>
+
 <script>
 import { useLocalStorage } from '@vueuse/core'
 export default {
@@ -6,30 +12,30 @@ export default {
     },
     data() {
         return {
-            favoriteMovies: useLocalStorage('movies', []),
+            favoriteMovies: useLocalStorage("movies", []),
             checked: false
-        }
+        };
     },
     methods: {
         async saveMovieAsFavorite() {
-            if(!this.checked) {
-                this.removeMovieFromFavorites()
-                return
+            if (!this.checked) {
+                this.removeMovieFromFavorites();
+                return;
             }
-            this.favoriteMovies.push(this.movie)
+            this.favoriteMovies.push(this.movie);
         },
         async removeMovieFromFavorites() {
-            this.favoriteMovies.splice(this.favoriteMovies.findIndex(element => element.id === this.movie.id), 1)
+            this.favoriteMovies.splice(this.favoriteMovies.findIndex(element => element.id === this.movie.id), 1);
         },
-        bringFavoritedMovies() {
-            if(this.favoriteMovies.find(element => element.id === this.movie.id)) {
-                this.checked = true
+        getFavoritedMovies() {
+            if (this.favoriteMovies.find(element => element.id === this.movie.id)) {
+                this.checked = true;
             }
         }
     },
     beforeMount() {
-        this.bringFavoritedMovies()
-    }
+        this.getFavoritedMovies();
+    },
 }
 </script>
 
@@ -41,12 +47,12 @@ export default {
         <div class="grid items-center my-4 w-1/4">
             <span class="font-bold text-lg mb-3">{{ movie.title }} ({{ movie.release_date }})</span>
             <div class="flex items-center">
-                <img src="@/assets/images/star.svg" alt="Movie rating icon">
+                <StarIcon />
                 <span class="pl-1">{{ movie.vote_average }}</span>
                 <label for="like" class="flex pl-4">
-                    <input type="checkbox" id="like" class="" v-model="checked" @change="saveMovieAsFavorite">
-                    <img src="@/assets/images/heart.svg" alt="" class="">
-                    <span class="pl-1">Favoritar</span>
+                    <input type="checkbox" id="like" class="hidden" v-model="checked" @change="saveMovieAsFavorite">
+                    <HeartIcon :svgColor="checked ? '#BA0707' : 'none'" class="hover:fill-red-700"/>
+                    <HeartLabel :label="checked ? 'Favorited' : 'Favorite'" />
                 </label>
             </div>
         </div>
