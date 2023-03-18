@@ -17,7 +17,7 @@ export default {
         };
     },
     methods: {
-        async saveMovieAsFavorite() {
+        saveMovieAsFavorite() {
             if (!this.checked) {
                 this.removeMovieFromFavorites();
                 return;
@@ -25,7 +25,7 @@ export default {
             console.log(this.movie)
             this.favoriteMovies.push(this.movie);
         },
-        async removeMovieFromFavorites() {
+        removeMovieFromFavorites() {
             this.favoriteMovies.splice(this.favoriteMovies.findIndex(element => element.id === this.movie.id), 1);
         },
         getFavoritedMovies() {

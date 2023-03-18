@@ -3,13 +3,15 @@ import PageTitle from '@/components/PageTitle.vue'
 import MovieCard from '@/components/MovieCard.vue'
 import SearchBar from '@/components/SearchBar.vue';
 import CheckboxFavorites from '@/components/CheckboxFavorites.vue';
+import { useLocalStorage } from '@vueuse/core';
 </script>
 
 <script>
 export default {
     data() {
         return {
-            checked: true
+            checked: true,
+            movies: useLocalStorage("movies", [])
         };
     }
 }
