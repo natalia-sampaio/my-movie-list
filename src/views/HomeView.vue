@@ -42,6 +42,6 @@ import { useLocalStorage } from '@vueuse/core'
     </RouterLink>
   </header>
   <main class="flex flex-wrap justify-center items-center">
-      <MovieCard v-for="movie in movies" :movie="movie" />
+      <MovieCard v-for="movie in movies" :movie="movie" :key="movie.id" />
   </main>
 </template>

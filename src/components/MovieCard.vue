@@ -22,6 +22,7 @@ export default {
                 this.removeMovieFromFavorites();
                 return;
             }
+            console.log(this.movie)
             this.favoriteMovies.push(this.movie);
         },
         async removeMovieFromFavorites() {
@@ -49,8 +50,8 @@ export default {
             <div class="flex items-center">
                 <StarIcon />
                 <span class="pl-1">{{ movie.vote_average }}</span>
-                <label for="like" class="flex pl-4">
-                    <input type="checkbox" id="like" class="hidden" v-model="checked" @change="saveMovieAsFavorite">
+                <label class="flex pl-4">
+                    <input type="checkbox" class="hidden" v-model="checked" @change="saveMovieAsFavorite" aria-label="like button">
                     <HeartIcon :svgColor="checked ? '#BA0707' : 'none'" class="hover:fill-red-700"/>
                     <HeartLabel :label="checked ? 'Favorited' : 'Favorite'" />
                 </label>
