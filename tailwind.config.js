@@ -19,6 +19,9 @@ module.exports = {
       },
       boxShadow: {
         accent: 'rgba(253, 95, 0, 0.4) 5px 5px, rgba(253, 95, 0, 0.3) 10px 10px, rgba(253, 95, 0, 0.2) 15px 15px, rgba(253, 95, 0, 0.1) 20px 20px, rgba(253, 95, 0, 0.05) 25px 25px'
+      },
+      screens: {
+        'xs': '365px'
       }
     },
   },

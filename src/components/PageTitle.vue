@@ -8,5 +8,5 @@ defineProps({
 </script>
 
 <template>
-    <h1 class="font-kanit font-medium text-beige text-5xl">{{ title }}</h1>
+    <h1 class="font-kanit font-medium text-beige sm:text-5xl xs:text-4xl m-4">{{ title }}</h1>
 </template>
