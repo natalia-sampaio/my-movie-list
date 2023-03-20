@@ -49,7 +49,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/natalia-sampaio/my-movie-list)
-- Live Site URL: [Vercel]()
+- Live Site URL: [Vercel](https://my-movie-list-bice.vercel.app/)
 
 ### Project Setup
 
