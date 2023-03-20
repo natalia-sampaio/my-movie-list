@@ -47,7 +47,7 @@ export default {
         </div>
         <div class="grid items-center lg:my-4 xs:m-0 lg:w-1/4 xs:w-full justify-center">
             <span class="font-bold text-lg mb-3 p-4 xs:text-center lg:text-left">{{ movie.title }} ({{ movie.release_date }})</span>
-            <div class="flex items-center justify-center">
+            <div class="flex xs:text-center xl:justify-start xl:ml-4 justify-center">
                 <StarIcon />
                 <span class="pl-1">{{ movie.vote_average }}</span>
                 <label class="flex pl-4">
