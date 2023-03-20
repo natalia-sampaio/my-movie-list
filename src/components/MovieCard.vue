@@ -41,13 +41,13 @@ export default {
 </script>
 
 <template>
-    <div class="font-kanit text-beige w-1/2 m-8 shadow-accent bg-blue-900 rounded-xl flex items-center">
+    <div class="font-kanit text-beige 2xl:w-1/2 lg:w-2/3 sm:w-1/2 xs:w-2/3 m-8 xs:shadow-mobile sm:shadow-accent bg-blue-900 rounded-xl flex lg:flex-row xs:flex-col items-center">
         <div class="m-8">
             <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="movie poster" class="rounded-full w-32 h-32 object-cover shadow-2xl">
         </div>
-        <div class="grid items-center my-4 w-1/4">
-            <span class="font-bold text-lg mb-3">{{ movie.title }} ({{ movie.release_date }})</span>
-            <div class="flex items-center">
+        <div class="grid items-center lg:my-4 xs:m-0 lg:w-1/4 xs:w-full justify-center">
+            <span class="font-bold text-lg mb-3 p-4 xs:text-center lg:text-left">{{ movie.title }} ({{ movie.release_date }})</span>
+            <div class="flex items-center justify-center">
                 <StarIcon />
                 <span class="pl-1">{{ movie.vote_average }}</span>
                 <label class="flex pl-4">
@@ -57,6 +57,6 @@ export default {
                 </label>
             </div>
         </div>
-        <span class="mx-4 my-8 self-start w-1/2">{{ movie.overview }}</span>
+        <span class="lg:mx-4 lg:my-8 p-8 xs:text-center self-start lg:w-1/2 sm:w-full">{{ movie.overview }}</span>
     </div>
 </template>
